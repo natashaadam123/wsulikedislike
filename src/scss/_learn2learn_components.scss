@@ -1,0 +1,487 @@
+// re-usable components, headings, subheadings, buttons
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontBold;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+p,
+li {
+  font-family: $fontBook;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+}
+
+/********** CARDS [BEGIN] **********/
+
+.card-wide {
+  @include boxShadow;
+  margin-bottom: 2.6rem;
+  border-radius: 0.8rem;
+
+  .card-body {
+    padding: 2rem 2.5rem 2.5rem;
+  }
+}
+
+.card-category {
+  @include boxShadow;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  background-color: $color-white;
+  border-color: var(--secondary);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  color: $color-black;
+  text-decoration: none;
+
+  &:hover {
+    @include boxShadowHover;
+    transform: translateY(-0.5rem);
+    color: $color-black;
+    cursor: pointer;
+    .card-top {
+      background-color: var(--tertiary);
+    }
+  }
+
+  .card-top {
+    min-height: 24.5rem;
+    background-color: var(--secondary);
+    transition: background-color 0.3s ease;
+    position: relative;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 2.5rem 1rem 0;
+  }
+
+  .card-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100%;
+    height: 18rem;
+    background: no-repeat center center;
+    background-size: contain;
+  }
+
+  .card-bottom {
+    padding: 3rem 4rem;
+  }
+
+  .card-completed {
+    border: 1px solid var(--secondary);
+    padding: 0.3rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-family: $fontBook;
+  }
+}
+
+/********** CARDS [END] **********/
+
+/********** BUTTONS [BEGIN] **********/
+
+.btn {
+  min-width: 25rem;
+  max-width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 2.4rem;
+  font-family: $fontBook;
+  font-size: 1.6rem;
+}
+
+.btn-primary,
+.btn-primary:focus {
+  color: $color-black;
+  background-color: $color-white;
+  border: 0.2rem solid $color-black;
+  transition: background-color 0.3s ease;
+
+  &:hover,
+  &:active {
+    color: $color-white;
+    border-color: $color-black;
+    background-color: $color-black;
+    font-family: $fontBold;
+  }
+
+  &.disabled,
+  &[disabled] {
+    opacity: 0.25;
+  }
+}
+
+.btn.btn-custom {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: $color-white;
+
+  &:hover,
+  &:active {
+    border-color: var(--secondary);
+    background-color: var(--secondary);
+  }
+}
+
+.btn-nav {
+  display: inline-block;
+  border: 1px solid $color-crimson;
+  color: $color-white;
+  background-color: $color-crimson;
+  font-family: $fontBold;
+  min-width: 12rem;
+  padding: 0.6rem 3rem;
+  border-radius: 2rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  &.nav-arrow-right::after {
+    content: ">";
+    margin-left: 1rem;
+  }
+
+  &.disabled,
+  &[disabled] {
+    border: 1px solid $color-dark-grey;
+    color: $color-lite-grey;
+    font-family: $fontBook;
+    background-color: $color-white;
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &:active {
+    border-color: $color-crimson;
+    color: $color-crimson;
+    background-color: $color-white;
+  }
+}
+
+.btn-link {
+  min-width: auto;
+  color: $color-black;
+  &:hover,
+  &:active {
+    color: darken($color-black, 10%);
+  }
+}
+
+/********** BUTTONS [END] **********/
+
+/********** PROGRESS INDICATOR [BEGIN] **********/
+
+.progress-indicator {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  column-gap: 1.2rem;
+
+  li {
+    height: 0.3rem;
+    background-color: $color-lite-grey;
+    border-radius: 0.5rem;
+    width: 6.5rem;
+    gap: 0.5rem;
+
+    &.progress-active {
+      background-color: $color-academy;
+    }
+  }
+}
+
+/********** PROGRESS INDICATOR [END] **********/
+
+/********** CHECKBOX BUTTON [BEGIN] **********/
+
+.checkbox-button {
+  display: inline-block;
+
+  .checkbox-button-input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .checkbox-button-input:checked + .checkbox-button-title {
+    background-color: $color-dark-grey;
+    color: $color-white;
+    font-family: $fontBold;
+  }
+
+  .checkbox-button-title {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    min-width: 50rem;
+    max-width: 100%;
+    border: 1px solid $color-dark-grey;
+    border-radius: 2rem;
+    background-color: $color-white;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      background-color: $color-dark-grey;
+      color: $color-white;
+      font-family: $fontBold;
+    }
+  }
+
+  &.checkbox-square-button .checkbox-button-title {
+    border-radius: 0;
+    box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/********** CHECKBOX BUTTON [END] **********/
+
+/********** DROPDOWN SELECT [BEGIN] **********/
+
+.dropdown {
+  font-size: 1.6rem;
+  font-family: $fontBold;
+
+  .dropdown-list-wrap {
+    position: relative;
+    line-height: 1;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  .dropdown-list {
+    background-color: $color-white;
+    color: $color-black;
+    padding: 1rem 5rem 1rem 1.5rem;
+    border: none;
+    border: 1px solid $color-black;
+    border-radius: 0.5rem;
+    appearance: none;
+    box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
+
+    .dropdown-option {
+      appearance: none;
+
+      &:hover {
+        background-color: $color-black;
+        color: $color-white;
+      }
+    }
+  }
+
+  .dropdown-arrow {
+    display: block;
+    height: 100%;
+    width: 4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+  }
+}
+
+/********** DROPDOWN SELECT [END] **********/
+
+/********** LESSON CARD [BEGIN] **********/
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 12rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: $color-white;
+  border: 0.1px solid var(--primary);
+  border-bottom-width: 0.5rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &:hover,
+  &:active {
+    background-color: var(--tertiary);
+    transform: translateY(-0.5rem);
+    cursor: pointer;
+  }
+
+  &.completed {
+    background-color: var(--secondary);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: url("../img/card-small-tick.svg") no-repeat center center;
+      background-color: var(--primary);
+      background-size: 1.3rem;
+      border-radius: 0.4rem 0 0.5rem 0;
+    }
+  }
+}
+
+.lesson-card-title {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+.lesson-card-footnote {
+  font-size: 1.2rem;
+  margin: auto 0 0;
+}
+
+/********** LESSON CARD [END] **********/
+
+/********** TOP BAR [BEGIN] **********/
+.top-bar {
+  background-color: $color-white;
+  box-shadow: 0 0.3rem 2.4rem 0 rgba(0, 0, 0, 0.16);
+
+  .top-bar-button {
+    min-width: 15rem;
+    margin-right: 2rem;
+  }
+
+  .top-bar-title {
+    font-family: $fontBold;
+    font-size: 1.8rem;
+    margin: 0;
+    cursor: default;
+  }
+
+  .top-bar-thumbs {
+    $thumbsText: "Did you find this lesson worthwhile?";
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: $thumbsText;
+      display: inline-block;
+      margin-right: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .thumbs-popup {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 3rem);
+      z-index: 2;
+      background-color: $color-white;
+      padding: 2rem 4rem;
+      box-shadow: 0 0.3rem 3.6rem 0 rgba(0, 0, 0, 0.15);
+      border-radius: 1.5rem;
+      transition: 0.3s;
+      opacity: 0;
+      .btn {
+        min-width: 12rem;
+        &:first-child {
+          margin-right: 1rem;
+        }
+        &.active {
+          background-color: $color-black;
+          border-color: $color-black;
+          color: $color-white;
+        }
+        &:focus {
+          background-color: $color-black;
+          border-color: $color-black;
+          color: $color-white;
+          font-family: $fontBold;
+        }
+      }
+
+      &::before {
+        content: $thumbsText;
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 2rem solid transparent;
+        border-right: 2rem solid transparent;
+        border-bottom: 2rem solid $color-white;
+      }
+    }
+  }
+  .popover-active {
+    .thumbs-popup {
+      display: block;
+      opacity: 1;
+    }
+  }
+}
+/********** TOP BAR [END] **********/
+
+/********** THUMBS [BEGIN] **********/
+.thumbs {
+  padding: 0.8rem;
+  min-width: 8rem;
+  min-height: 4rem;
+  border: 0.1rem solid $color-lightest-grey;
+  background-color: $color-white;
+  border-radius: 0.8rem;
+  display: inline-flex;
+  justify-content: space-between;
+
+  .thumb {
+    width: 2.8rem;
+    height: 2.8rem;
+    background: no-repeat center;
+  }
+
+  .thumb-up {
+    background-image: url("../img/thumb-icon-up.svg");
+    &.active {
+      background-image: url("../img/thumb-icon-up-active.svg");
+    }
+  }
+
+  .thumb-down {
+    background-image: url("../img/thumb-icon-down.svg");
+    &.active {
+      background-image: url("../img/thumb-icon-down-active.svg");
+    }
+  }
+}
+/********** THUMBS [END] **********/
+
+/********** HEADER FEATURED IMAGE [BEGIN] **********/
+.header-featured-image {
+  height: 17rem;
+  background: no-repeat center;
+  background-size: cover;
+
+  background-color: $color-lightest-grey;
+}
+/********** HEADER FEATURED IMAGE [END] **********/

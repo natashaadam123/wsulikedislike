@@ -1,0 +1,581 @@
+// layout and non-reusable styles
+
+// Home Page
+
+.header {
+    padding-top: 1rem;
+}
+
+.progress {
+    height: 3.7rem;
+    border-radius: 2rem;
+    background-color: $color-off-white;
+    position: relative;
+    overflow: visible;
+
+    .progress-bar {
+        border-radius: 2rem;
+    }
+
+    .progress-trophy {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 6.4rem;
+        height: 6.4rem;
+        border-radius: 50%;
+        background-color: $color-off-white;
+        @include boxShadow;
+        @include flexCenter;
+    }
+
+}
+
+.main-personalised {
+
+    margin-top: 3rem;
+    
+    &.initial > .container {
+        padding-top: 2rem;
+        border-top: 1px solid $color-line;
+    }
+
+    .main-personal-card {
+        margin: 3rem 0;
+    }
+
+    .card-bottom {
+        text-align: center;
+    }
+
+    .card-bottom .btn-primary {
+        border-color: $color-crimson;
+        background-color: $color-crimson;
+        color: $color-white;
+        padding: 0.5rem 2rem;
+
+        &:hover, &:active, &:focus {
+            border-color: $color-crimson;
+            background-color: $color-white;
+            color: $color-crimson;
+        }
+    }
+
+    .card-personalised-heading {
+
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .personalised-title {
+            margin: 0;
+            font-size: 4.8rem;
+        }
+
+        .edit-feed-btn {
+            margin-left: 1rem;
+        }
+
+        .show-hide-btn {
+            margin-left: auto;
+        }
+
+    }
+
+    // Personalised Lessons
+    .personalised-lessons {
+        margin-bottom: 2rem;
+
+        .p-lessons-row {
+            row-gap: 2rem;
+        }
+
+        .carousel {
+            margin: 2rem 0 6rem;
+        }
+
+        .carousel-inner {
+            padding: 1.5rem 0;
+        }
+
+        .carousel-indicators {
+            bottom: auto;
+            top: calc(100% + 4rem);
+
+            button {
+                width: 1.5rem;
+                height: 1.5rem;
+                border: none;
+                border-radius: 50%;
+                background-color: $color-lite-grey;
+                transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+                transform: scale(0.8);
+
+                &.active {
+                    background-color: $color-black;
+                    transform: scale(1.2);
+                }
+
+            }
+
+        }
+
+        .carousel-item {
+            min-height: 26rem;
+        }
+
+        .carousel-control-prev {
+            left: auto;
+            right: 100%;
+        }
+
+        .carousel-control-next {
+            right: auto;
+            left: 100%;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            background-color: transparent;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            width: 5rem;
+            height: 5rem;
+            background-size: 50%;
+            background-color: $color-black;
+            border-radius: 50%;
+            box-shadow: 0 0.4rem 0.4rem 0 rgba(0,0,0,0.1);
+        }
+
+    }
+    // End of Personalised Lessons
+
+}
+
+.footer {
+
+    .footer-title {
+        font-family: $fontBook;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-buttons button {
+        margin-right: 2rem;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+}
+
+// End of Home Page
+
+// Questionnaire
+.questionnaire {
+
+    .main {
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .main .container-fluid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2, .progress-indicator {
+        margin-bottom: 2rem;
+    }
+
+    .questions {
+        margin: 0;
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    .question-group::marker {
+        font-family: $fontBold;
+    }
+
+    .question-title {
+        font-family: $fontBold;
+    }
+
+    .question-options {
+        list-style-type: none;
+        padding: 0;
+        margin: 2rem 0 0;
+    }
+
+    .question-option {
+        margin-bottom: 1rem;
+    }
+
+    .questions-navigation {
+        margin-top: 2.5rem;
+    }
+
+}
+// End of Questionnaire
+
+// Topic Selection
+.topic-selection {
+
+    .topic-selection-text {
+        font-family: $fontBold;
+        font-size: 2.4rem;
+        margin: 2rem 0;
+        padding-left: 2rem;
+        line-height: 1.2;
+    }
+
+    .topics {
+        list-style-type: none;
+        margin: 0;
+        padding: 3rem 1rem;
+        background-color: $color-off-white;
+        border: 1px solid $color-lightest-grey;
+        display: flex;
+        row-gap: 2rem;
+    }
+
+    .checkbox-square-button {
+        width: 100%;
+    }
+
+    .topic .checkbox-button-title {
+        min-width: 0;
+        width: 100%;
+        font-size: 1.8rem;
+    }
+
+    .topic-selection-navigation {
+        margin-top: 2rem;
+        text-align: center;
+        .btn-nav {
+            min-width: 20rem;
+        }
+    }
+
+}
+// End of Topic Selection
+
+// Category Page
+.category-page {
+
+    // Category Page Header
+    .header {
+
+        .card-body {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .header-title {
+            margin: 1rem 0 0;
+        }
+
+    }
+    // End of Category Page Header
+
+    // Category Page Main
+    .main {
+
+        .lessons {
+            padding-top: 4rem;
+            padding-bottom: 5rem;
+            row-gap: 7rem;
+        }
+
+        .lessons-completed {
+            padding-top: 6rem;
+            border-top: 0.1rem solid $color-dark-grey;
+            position: relative;
+
+            .lessons-completed-text {
+                position: absolute;
+                display: inline-block;
+                padding: 0.1rem 2rem;
+                left: 50%;
+                top: -1.25rem;
+                background-color: $color-white;
+                color: $color-black;
+                font-family: $fontBold;
+                transform: translateX(-50%);
+                width: auto;
+            }
+
+        }
+
+        .lesson-card {
+            position: relative;
+            min-height: 12.5rem;
+            z-index: 1;
+            text-decoration: none;
+            color: $color-black;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: -25%;
+                z-index: 2;
+                width: 5rem;
+                height: 5rem;
+                background-color: var(--primary);
+                color: $color-white;
+                border-radius: 50%;
+                transform: translateX(-50%);
+            }
+
+            .lesson-card-title {
+                margin-top: 3rem;
+            }
+
+        }
+
+    }
+    // End of Category Page Main
+
+}
+// End of Category Page
+
+// Lesson Landing page
+.lesson-landing-page {
+
+    .header {
+        padding-top: 0;
+    }
+
+    .main {
+
+        .lesson-landing-title {
+            font-size: 3.6rem;
+            font-weight: bold;
+        }
+
+        .lesson-landing-reading-time {
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1.8rem;
+            line-height: 2.7rem;
+        }
+
+        .lesson-landing-start-btn-wrap {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+    }
+
+}
+// End of Lesson Landing page
+
+/************************************************/
+/********** LESSON PAGE STYLES [BEGIN] **********/
+/************************************************/
+
+.lesson-style, .lesson-style body, .lesson-style .lesson-page {
+    height: 100%;
+}
+
+.lesson-main-container {
+    min-height: calc(100% - 6rem);
+    display: flex;
+}
+
+// Sidebar
+.sidebar {
+    background-color: $color-black;
+    width: 35rem;
+    flex-shrink: 0;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+
+    .sidebar-button {
+        position: absolute;
+        top: 0;
+        left: calc(100% - 1.2rem);
+        width: 6.8rem;
+        height: 4.4rem;
+        z-index: -1;
+        background: url("../img/hamburger.svg") no-repeat center;
+        border: none;
+        opacity: 0.9;
+        transition: all 0.3s ease-in-out;
+        transform: translateZ(-1rem);
+
+        &:hover, &:focus {
+            background-image: url("../img/hamburger-hover.svg");
+            transform: translate3d(0.2rem, 0, -1rem);
+        }
+    }
+
+    h1, p, div, li {
+        font-family: $fontOpenSans;
+    }
+
+    .sidebar-header {
+        margin: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 0.1rem solid $color-dark-grey;
+    }
+
+    .sidebar-header-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        
+        a {
+            color: $color-white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+
+            &:hover, &:focus {
+                color: $color-lite-grey;
+            }
+
+        }
+    }
+
+    .sidebar-header-reading-time {
+        color: $color-white;
+        font-size: 1.3rem;
+        cursor: default;
+    }
+
+    .sidebar-progress {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar-progress-bar {
+        height: 0.4rem;
+        flex-grow: 1;
+        background-color: $color-dark-grey;
+    }
+
+    .sidebar-progress-bar-fill {
+        background-color: var(--primary);
+        height: 100%;
+    }
+
+    .sidebar-progress-text {
+        color: $color-lite-grey;
+        font-size: 1rem;
+        text-align: right;
+        padding-left: 1rem;
+        cursor: default;
+    }
+
+    .sidebar-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar-list-item-link {
+        display: block;
+        text-decoration: none;
+        color: $color-white;
+        padding: 1.8rem 4rem 1.8rem 2rem;
+        font-size: 1.4rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover, &:focus {
+            background-color: $color-dark-grey;
+        }
+
+        &:active {
+            color: $color-mid-grey;
+            background-color: #1a1a1a;
+        }
+
+        &.active {
+            font-weight: bold;
+            background-color: var(--primary);
+        }
+
+        &.completed {
+            background-image: url("../img/nav-item-tick.svg");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 2rem) center;
+            background-size: 2rem 2rem;
+        }
+    }
+
+}
+// End of Sidebar
+
+// Lesson main
+.lesson-main {
+    padding: 5rem 0;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bolder;
+        margin-bottom: 3rem;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, li {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    ul, ol, p {
+        margin-bottom: 2rem;
+    }
+
+    ul li, ol li {
+        margin-bottom: 1rem;
+    }
+
+    p, ul li, ol li {
+        font-size: 1.6rem;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .lesson-continue-button {
+        margin-top: 5rem;
+        text-align: center;
+    }
+
+    &.lesson-content {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        box-shadow: 0 0.3rem 2.5rem 0 rgba(0, 0, 0, 0.05);
+    }
+    
+}
+// End of Lesson main
+
+/**********************************************/
+/********** LESSON PAGE STYLES [END] **********/
+/**********************************************/
